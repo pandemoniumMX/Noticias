@@ -1,0 +1,327 @@
+    .secciones h2{
+
+    }
+    /* div banner simple*/
+    .banner {
+        width: 1200px;
+        height: 400px;
+        background-color: #000000;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .banner img{
+        width: 1200px;
+        height: 400px;
+
+    }
+
+    /* div noticia del dia*/
+    .notidia
+    {
+    	width: 750px;
+    	height: 325px;
+        float: left;
+        margin-left: 75px;
+    }
+    .notidia h2{
+    	color: #045fb4;
+    	font-size:20px;
+    margin: 0px;
+    	font-family: arial;
+    }
+    .notidia h1{
+    	color: #045fb4;
+    	font-size:20px;
+    	margin: 0px;
+    	font-family: arial;
+    }
+    .notidia img{
+    	width: 300px;
+    	height: 300px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .notidia p{
+        font-size: 18px;
+        color: #5882FA;
+        text-align: justify;
+    }
+
+    .popular{
+        width: 450px;
+        height: 325px;
+        float: left;
+    }
+    .popular h2{
+        color: #045fb4;
+        font-size:20px;
+    margin: 0px;
+    margin-left: 10px;
+        font-family: arial;
+
+    }
+    .popunoti{
+        width: 450px;
+        height: 150px;
+    }
+    .popunoti img{
+        width: 150px;
+        height: 140px;
+        float: left;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+        .popunoti h1{
+        color: #045fb4;
+        font-size:20px;
+        margin: 0px;
+        margin-left: 10px;
+        font-family: arial;
+    }
+
+        /* ACERCA DE*/
+
+        /* div MISION Y VISION*/
+
+        .contentmv {
+        width: 1200px;
+        height: 250px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        float: left;
+    }
+        .mv{
+        width: 570px;
+        height: 250px;
+        float: left;
+        padding: 15px;
+
+    }
+        .mv h2{
+        color: #045fb4;
+        font-size:20px;
+    margin: 0px;
+        font-family: arial;
+
+    }
+        .mv p{
+        font-size: 18px;
+        color: #5882FA;
+        text-align: justify;
+    }
+
+  /* EQUIPO TRABAJO */
+    .contenteqipo {
+        width: 1200px;
+        height: 340Px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        float: left;
+/* IMPORTANTE */
+  text-align: center;
+}
+        .contenteqipo h2{
+        color: #045fb4;
+        font-size:20px;
+        margin: 0px;
+        font-family: arial;
+        margin: 15px;
+
+    }
+
+.integrante {
+        width: 360PX;
+        height: 300px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 0px;
+        border: 0px;
+        /* IMPORTANTE */
+        display: inline-block;
+}
+
+    .integrante img{
+        width: 250px;
+        height: 250px;
+        margin-right: 10px;
+    }
+        .integrante h1{
+        color: #045fb4;
+        font-size:20px;
+        margin: 10px;
+        font-family: arial;
+    }
+         /* Contacto */
+         /* UBICACION */
+    .ubicacion{
+        width: 1200px;
+        height: 350Px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        float: left;
+
+    }
+
+        .frmdatos{
+        width: 1200px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        float: left;
+    }
+
+
+        /* formulario */
+
+        .formulario{
+        width: 600px;
+        float: left;
+        }
+        .formulario h2{
+        color: #045fb4;
+        font-size:20px;
+        margin: 0px;
+        font-family: arial;
+        margin: 15px;
+    }
+
+        .frm{
+             width: 600px;
+
+        }
+
+        .frm td{
+            width: 200px;
+            padding:5px;
+            font-size: 18px;
+            color:  #045fb4;
+        }
+
+                .frm input{
+        height: 22px;
+        width: 300px;
+        }
+
+        .frm textarea{
+            height: 200px;
+            width: 300px;
+        }
+         /* datos contacto */
+        .datoscontacto{
+        width: 600px;
+        height: 500px;
+        float: left;
+        }
+        .datoscontacto h2{
+        color: #045fb4;
+        font-size:20px;
+        margin-bottom: 20px;
+        font-family: arial;
+    }
+
+    .datoscontacto a{
+        color: #045fb4;
+        font-size:18px;
+        margin: 10px;
+        font-family: arial;
+    }
+    .datoscontacto h1{
+        color: #045fb4;
+        font-size:18px;
+        margin: 10px;
+        font-family: arial;
+    }
+
+         /* catalogo 1 bien prron */
+
+    .contentnoticias{
+        width: 1200px;
+        height: 350Px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        float: left;
+/* IMPORTANTE */
+  text-align: center;
+}
+        .contentnoticias h2{
+        color: #045fb4;
+        font-size:20px;
+        margin: 0px;
+        font-family: arial;
+        margin: 15px;
+
+    }
+
+.noticia {
+        width: 260PX;
+        height: 330px;
+        margin-right: 75px;
+        margin-left: 75px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        float: left;
+/* IMPORTANTE */
+  text-align: center;
+        display: inline-block;
+}
+
+    .noticia img{
+        width: 250px;
+        height: 250px;
+        margin-right: 10px;
+    }
+        .noticia h1{
+        color: #045fb4;
+        font-size:20px;
+        margin: 10px;
+        font-family: arial;
+        text-align: center;
+    }
+        .noticia a{
+        color: #045fb4;
+        font-size:18px;
+        font-family: arial;
+    }
+
+       /* div noticia indivisual*/
+    .noticiaindividual
+    {
+        width: 900px;
+        height: 500px;
+        float: left;
+        margin-left: 225px;
+        margin-top: 50px;
+    }
+
+    .noticiaindividual h1{
+        color: #045fb4;
+        font-size:28px;
+        margin: 0px;
+        font-family: arial;
+    }
+    .noticiaindividual img{
+        width: 450px;
+        height: 450px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .noticiaindividual p{
+        font-size: 22px;
+        color: #5882FA;
+        text-align: justify;
+    }
