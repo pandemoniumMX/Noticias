@@ -248,7 +248,7 @@
 
     .contentnoticias{
         width: 1200px;
-        height: 350Px;
+
         margin-right: 75px;
         margin-left: 75px;
         margin-top: 25px;
@@ -269,13 +269,11 @@
 .noticia {
         width: 260PX;
         height: 330px;
-        margin-right: 75px;
-        margin-left: 75px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        float: left;
-/* IMPORTANTE */
-  text-align: center;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 0px;
+        border: 0px;
+        /* IMPORTANTE */
         display: inline-block;
 }
 

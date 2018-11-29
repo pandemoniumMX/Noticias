@@ -45,7 +45,7 @@ $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
 
 
-
+  <div class="contentnoticias">
                 <?php
                 $ejec1 = mysqli_query($conn, $publicada);
                 while($fila=mysqli_fetch_array($ejec1)){ ?>
@@ -61,8 +61,8 @@ $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
               <?php } ?>
 
-
-
+</div>
+</div>
 
 
 
