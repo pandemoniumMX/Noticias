@@ -11,7 +11,7 @@ $var_tipo = $_SESSION['tipo'];
 /*
 if($var_tipo != "Administrador") {
  //echo "<script>alert('No tienes acceso a esta página!')</script>";
-   echo "<script>window.open('Error_restrinccion.php','_self')</script>";
+   echo "<script>window.open('Error_restrinccion.html','_self')</script>";
  }
 */
 

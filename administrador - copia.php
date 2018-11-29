@@ -1,18 +1,19 @@
 <?php
 include'check_sesion.php';
-//include'fuctions.php';
+include'fuctions.php';
 include'conexion.php';
+//verificar_sesion();
 
-$var_name=$_SESSION['USU_NOMBRE'];
+$var_name=$_SESSION['nombre'];
 $var_clave= $_SESSION['clave'];
-$var_tipo = $_SESSION['USU_TIPO'];
+$var_tipo = $_SESSION['tipo'];
 
-
+/*
 if($var_tipo != "Administrador") {
  //echo "<script>alert('No tienes acceso a esta página!')</script>";
-   echo "<script>window.open('Error_restrinccion.html','_self')</script>";
+   echo "<script>window.open('Error_restrinccion.php','_self')</script>";
  }
-
+*/
 
 $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
@@ -38,7 +39,6 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
     <!-- Font-icon css-->
   <link href= "css/themify-icons.css" rel="stylesheet">
@@ -244,7 +244,8 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#a-tables').DataTable();</script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js
+"></script>
 
     <script src="assets/js/chartjs/Chart.bundle.js"></script>
     <script src="assets/js/chartjs/Chart.bundle.min.js"></script>
@@ -516,7 +517,7 @@ swal({
 title: 'Modificar',
 html:
 '<div class="col-lg-12"> <form action="administrador_fn_act.php" method="post" name="data" enctype="multipart/form-data">'+
-'<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
+//'<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Titulo</label>' +
 '<input input type="text" name="tit" id="tit" pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Subtitulo</label>' +

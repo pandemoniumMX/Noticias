@@ -11,11 +11,7 @@ if ( (isset($_POST['user'])) || (isset($_POST['pass'])) ){
 	$var_contra = md5($_POST['pass']);
 
 
-
-
-
-
-$consulta = "SELECT USU_TIPO,USUARIO,USU_NOMBRE FROM usuarios WHERE USUARIO ='$var_user' AND USU_CONTRASENA = '$var_contra' ";
+$consulta = "SELECT ID_USUARIO,USU_TIPO,USUARIO,USU_APATERNO,USU_NOMBRE FROM usuarios WHERE USUARIO ='$var_user' AND USU_CONTRASENA = '$var_contra' ";
 $resultado = $conn->query($consulta);
 
 
@@ -28,29 +24,35 @@ if($resultado->num_rows > 0){
 	$tipo = $row["USU_TIPO"];
 	//Aspirantes
 
+
+
     if($tipo == 'Administrador'){
     		$_SESSION['clave'] = $row["ID_USUARIO"];
     		//$id = $row["ID_USUARIO"];//
-    	    $_SESSION['nombre']=$var_nombre;
-    	    $_SESSION['tipo']=$var_tipo;
+    	    $_SESSION['USU_NOMBRE']=$var_nombre;
+    	    $_SESSION['USU_TIPO']=$var_tipo;
 
-    		header("location:administrador.php");
-    	}
-
-
-    	 }//aqui termina el while
-
-	}else{
-
-    echo "<script>alert('Usuario o contraseña invalidos!')</script>";
-        echo "<script>window.open('index.php','_self')</script>";}
+    		header("location:administrador.php");   
 
 
-	}else{
-	header("location:index.php");
 	}
+	if($tipo == 'Cliente'){
+		$_SESSION['clave'] = $row["ID_USUARIO"];
+		//$id = $row["ID_USUARIO"];//
+		$_SESSION['USU_NOMBRE']=$var_nombre;
+		$_SESSION['USU_TIPO']=$var_tipo;
+
+		header("location:contacto.php");   
 
 
+}else{
+		echo "<script>alert('Usuario o contraseña invalidos!')</script>";
+		echo "<script>window.open('index.php','_self')</script>";
+	}	
+	
+	}
+}
+}
 //} else{
 //}
 
