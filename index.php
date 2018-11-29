@@ -23,7 +23,7 @@ $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
           <div class="conthead">
             <div class="contheadlogo"><img  src="images/logo.png"></div>
           </div>
-          <div class="conthead"></div>
+          <div class="conthead"><div class="nav" ><ul><li><a onclick="login();" >LOGIN</a></li></ul></div></div>
       </div>
     <div class="nav" >
       <ul>
@@ -32,7 +32,6 @@ $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
         <li><a href="catalogo2.php">CATALOGO2</a></li>
         <li><a href="contacto.php">CONTACTO</a></li>
         <li><a href="acercade.php" >ACERCA DE</a></li>
-        <li><a onclick="login();" >LOGIN</a></li>
 
 
 
