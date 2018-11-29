@@ -194,7 +194,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                     <tr>
                         <td width="8%"><?php echo $id ?></td>
                         <td width="14%"><?php echo $usu ?></td>
-                        <td width="14%"><?php echo $con ?></td>
+                        <td width="14%" class="hidetext"><?php echo $con ?></td>
                         <td width="14%"><?php echo $apep ?></td>
                         <td width="14%"><?php echo $apem ?></td>
                         <td width="14%"><?php echo $nom ?></td>
@@ -246,8 +246,8 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#a-tables').DataTable();</script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js
-"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script> 
+<script src="js/sweetalert2.all.min.jsx"></script>
 
     <script src="assets/js/chartjs/Chart.bundle.js"></script>
     <script src="assets/js/chartjs/Chart.bundle.min.js"></script>
@@ -477,38 +477,54 @@ function fn_modificar(id){
 
 </script>
 
+
+
+
 <script type="text/javascript">
 
-  function nueva(){
+function nueva(){
 
 
-  swal({
- title: 'Registrar nuevo usuario',
- html:
- '<div class="col-lg-12"> <form action="administrador_fn_nueva.php" method="post" name="data" enctype="multipart/form-data">'+
- '<label>Titulo</label>' +
- '<input input type="text" name="titulo" id="titulo" pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
- '<label>Subtitulo</label>' +
- '<input input type="text" name="sub" id="sub" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
- '<label>Contenido</label>' +
- '<textarea type="text" name="contenido" id="contenido" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
-  '<label>imagen</label>' +
- '<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
- '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Agregar producto</Button>'+
- '</form></div>',
- showCancelButton: true,
- confirmButtonColor: '#3085d6',
- cancelButtonColor: '#d33',
- confirmButtonText: '</form> Actualizar solicitud',
- cancelButtonClass: 'btn btn-danger btn-fill btn-wd',
- showConfirmButton: false,
- focusConfirm: false,
- buttonsStyling: false,
-  reverseButtons: true
+swal({
+title: 'Registrar nuevo usuario',
+html:
+'<div class="col-lg-12"> <form action="administrador_fn_nuevo_usuario.php" method="post" name="data" enctype="multipart/form-data">'+
+'<label>Usuario</label>' +
+'<input input type="text" name="usu" id="usu" required pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
+'<label>Contraseña</label>' +
+'<input input type="password" name="con" id="con" required title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<label>Apelldio paterno</label>' +
+'<input type="text" name="ape" id="ape" pattern="[A-Za-z0-9 ]+" required title="Sólo letras y números" class="form-control border-input"></input>'+
+'<label>Apellido materno</label>' +
+'<input type="text" name="apem" id="apem" pattern="[A-Za-z0-9 ]+" required title="Sólo letras y números" class="form-control border-input"></input>'+
+'<label>Nombre(s)</label>' +
+'<input type="text" name="nom" id="nom" pattern="[A-Za-z0-9 ]+" required title="Sólo letras y números" class="form-control border-input"></input>'+
+'<label>Correo(s)</label>' +
+'<input type="mail" name="cor" id="cor" required title="Sólo letras y números" class="form-control border-input"></input>'+
+'<label>Tipo</label>' +
+'<select class="form-control form-control-sm" textalign="center" required name="tip" id="tip"><option value="" ></option>'+
+        '<option value="Administrador">Administrador</option>'+
+        '<option value="Cliente">Cliente</option>'+
+
+      
+        '</select>' +
+'</br>'+
+'<Button type="submit" class= "btn btn-info btn-fill btn-wd">Agregar</Button>'+
+'</form></div>',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: '</form> Actualizar solicitud',
+cancelButtonClass: 'btn btn-danger btn-fill btn-wd',
+showConfirmButton: false,
+focusConfirm: false,
+buttonsStyling: false,
+reverseButtons: true
 })
 
 };
 </script>
+
 
 <script type="text/javascript">
 
@@ -524,7 +540,7 @@ html:
 '<input input type="text" name="tit" id="tit" pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Subtitulo</label>' +
 '<input input type="text" name="sub" id="sub" pattern="[A-Za-z0-9]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
-'<label>Contenido</label>' +
+'<label>Contenido</label>' +d
 '<input input type="textarea" name="con" id="con" pattern="[A-Za-z0-9]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
 '<label>Estado</label>' +
 '<select class="form-control form-control-sm" textalign="center"   required name="est" id="est">'+
