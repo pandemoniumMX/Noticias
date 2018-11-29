@@ -15,7 +15,7 @@ if($var_tipo != "Administrador") {
  }
 */
 
-$publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
+$usuarios = "SELECT *  FROM usuarios;";
 
 $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
 
@@ -39,6 +39,10 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
+
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#a-tables').DataTable();</script>
 
     <!-- Font-icon css-->
   <link href= "css/themify-icons.css" rel="stylesheet">
@@ -90,7 +94,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
       
      
       <li><a class="app-menu__item active" href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
-      <li><a class="app-menu__item " href="administrador_usuarios.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
+       <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
 </ul>
 
 
@@ -113,17 +117,17 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                   <form id='form-id'>
 
                     <label class="btn btn-danger active" onclick="nueva();" >
-                      <a  /> Nueva noticia
+                      <a  /> Nuevo usuario
                       </label>
 
                     <label class="btn btn-success" id='watch-me'>
-                      <input name='test' type='radio' /> Modificar noticia
+                      <input name='test' type='radio' /> Usuarios Registrados
                     </label>
+    <!--common script for all pages
 
                       <label class="btn btn-warning" id='see-me'>
                       <input name='test' type='radio' /> Noticias eliminadas
                     </label>
-    <!--common script for all pages
 
                     <label class="btn btn-danger" onclick="location='admin_editar_taller.php'">
                       <input name='test' type='radio' /> Editar taller
@@ -156,66 +160,64 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
  <div id='show-me'>
  <div class="tile">
                       <div class="tile-body">
- <h4 >Noticias publicadas</h4>
+          <table id="a-tables" class="table table-hover table-dark table-responsive">
+    <thead>
 
- <div class="row">
-                <?php
-                $ejec1 = mysqli_query($conn, $publicada);
-                while($fila=mysqli_fetch_array($ejec1)){ ?>
+        <th data-field="id">id</th>
+      <th data-field="fecha" data-sortable="true">Usuario</th>
+      <th data-field="estatus" data-sortable="true">Contraseña</th>
+      <th data-field="estatus" data-sortable="true">Apellido paterno</th>
+      <th data-field="estatus" data-sortable="true">Apellido materno</th>
+      <th data-field="estatus" data-sortable="true">Nombre</th>
+      <th data-field="estatus" data-sortable="true">Correo</th>
+      <th data-field="estatus" data-sortable="true">Tipo</th>
 
-                <div class="col-lg-4" ><form action="administrador_fn_eliminar.php" method="post" name="data" content="text/html; charset=utf-8">
-                  <div class="bs-component">
-                    <div class="card" >
-                      <h4 class="card-header"><?php echo $fila['NOT_TITULO']; ?></h4>
-                      <div class="card-body">
-                        <h5 class="card-title"><?php echo $fila['NOT_SUBTITULO']; ?></h5>
-                        <h6 class="card-subtitle text-muted"><?php echo $fila['NOT_CONTENIDO']; ?></h6>
-                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
 
-                      <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
-                      <input  type="hidden" id="id" name="id" value="<?php echo $fila['ID_NOTICIA']; ?>" />
+      <th class="disabled-sorting">Acción</th>
 
-                      <input class="btn btn-success" type="submit" name="foo" value="Eliminar" />
+    </thead>
+    <?php
+      $ejecutar = mysqli_query($conn, $usuarios);
+    while($fila=mysqli_fetch_array($ejecutar)){
+        $id          = $fila['ID_USUARIO'];
+        $usu           = $fila['USUARIO'];
+        $con          = $fila['USU_CONTRASENA'];
+        $apep          = $fila['USU_APATERNO'];
+        $apem        = $fila['USU_AMATERNO'];
+        $nom        = $fila['USU_NOMBRE'];
+        $cor        = $fila['USU_CORREO'];
+        $tip        = $fila['USU_TIPO'];
 
-                      </div>
-                </form>
-                  </div><br></br>
-                </div>
 
-              <?php } ?>
+
+?>
+                    <tr>
+                        <td width="8%"><?php echo $id ?></td>
+                        <td width="14%"><?php echo $usu ?></td>
+                        <td width="14%"><?php echo $con ?></td>
+                        <td width="14%"><?php echo $apep ?></td>
+                        <td width="14%"><?php echo $apem ?></td>
+                        <td width="14%"><?php echo $nom ?></td>
+                        <td width="14%"><?php echo $cor ?></td>
+                        <td width="14%"><?php echo $tip ?></td>
+
+
+                        <td width="14%">
+                          <?php
+                          echo "
+                        <a href='#' onclick='modificar($id), fn_modificar( $id);' title='Actualizar usuario' ><i class='btn-sm btn-class ti-pencil-alt'></i></a>
               
-              </div></div></div></div>
+                      </td>"; ?>
+
+          </tr>
+        <?php } ?>
+        <tbody></br>
+            Resultado de clientes
+      </tbody>
+  </table>
+</div></div></div>
 
 
- <div id='show-me-two' style='display:none;  border:2px solid #ccc'>
- <div class="tile">
- <div class="tile-body">
- <h4 >Noticias Finalizadas</h4>
-
- <div class="row">
-                <?php
-                $ejec1 = mysqli_query($conn, $eliminada);
-                while($fila=mysqli_fetch_array($ejec1)){ ?>
-                <div class="col-lg-4">
-                  <div class="bs-component">
-                    <div class="card">
-                      <h4 class="card-header"><?php echo $fila['NOT_TITULO']; ?></h4>
-                      <div class="card-body">
-                        <h5 class="card-title"><?php echo $fila['NOT_SUBTITULO']; ?></h5>
-                        <h6 class="card-subtitle text-muted"><?php echo $fila['NOT_CONTENIDO']; ?></h6>
-                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
-
-                      <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
-                        <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_NOTICIA']; ?>), fn_modificar(<?php echo $fila['ID_NOTICIA']; ?>);">Republicar</button>
-                      </div>
-
-                  
-                  </div><br></br>
-                </div>
-
-              <?php } ?>
-              
-</div></div></div></div>
 
 
   
@@ -481,7 +483,7 @@ function fn_modificar(id){
 
 
   swal({
- title: 'Registrar nueva noticia',
+ title: 'Registrar nuevo usuario',
  html:
  '<div class="col-lg-12"> <form action="administrador_fn_nueva.php" method="post" name="data" enctype="multipart/form-data">'+
  '<label>Titulo</label>' +
