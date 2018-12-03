@@ -1,4 +1,5 @@
 <?php
+include 'checklog.php';
 include'check_sesion.php';
 //include'fuctions.php';
 include'conexion.php';
@@ -7,28 +8,31 @@ $var_name=$_SESSION['USU_NOMBRE'];
 $var_clave= $_SESSION['clave'];
 $var_tipo = $_SESSION['USU_TIPO'];
 
-if($var_tipo != "Contacto" && $var_tipo !='Administrador') {
+if($var_tipo != "Cliente" && $var_tipo !="Administrador") {
   //echo "<script>alert('No tienes acceso a esta página!')</script>";
-    echo "<script>window.open('Error_restrinccion.html','_self')</script>";
+    echo "<script>window.open('acceso.php','_self')</script>";
   }
 
 ?>
   <!DOCTYPE html>
   <html>
   <head>
-  <meta http-equiv="Content-Type";
-    content-"text/html; charset-utf-8"/>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
     <meta charset="utf-8">
     <title>Ejemplo con CSS</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/chartist.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
       <div class="header">
           <div class="conthead"></div>
           <div class="conthead">
             <div class="contheadlogo"><img  src="images/logo.png"></div>
           </div>
-          <div class="conthead"></div>
+          <div class="conthead"><div class="nav" ><ul><li><a href="destroy.php" >Cerrar sesión</a></li></ul></div></div>
       </div>
     <div class="nav" >
       <ul>

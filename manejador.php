@@ -30,7 +30,9 @@ if($resultado->num_rows > 0){
     		$_SESSION['clave'] = $row["ID_USUARIO"];
     		//$id = $row["ID_USUARIO"];//
     	    $_SESSION['USU_NOMBRE']=$var_nombre;
-    	    $_SESSION['USU_TIPO']=$var_tipo;
+			//$_SESSION['USU_TIPO']=$var_tipo;
+			$_SESSION['USU_TIPO'] = $row["USU_TIPO"];
+
 
     		header("location:administrador.php");   
 
@@ -40,7 +42,7 @@ if($resultado->num_rows > 0){
 		$_SESSION['clave'] = $row["ID_USUARIO"];
 		//$id = $row["ID_USUARIO"];//
 		$_SESSION['USU_NOMBRE']=$var_nombre;
-		$_SESSION['USU_TIPO']=$var_tipo;
+		$_SESSION['USU_TIPO'] = $row["USU_TIPO"];
 
 		header("location:contacto.php");   
 

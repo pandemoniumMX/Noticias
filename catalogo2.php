@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type";
-  content-"text/html; charset-utf-8"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
   <meta charset="utf-8">
   <title>Ejemplo con CSS</title>
   <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
@@ -13,7 +13,7 @@
         <div class="conthead">
           <div class="contheadlogo"><img  src="images/logo.png"></div>
         </div>
-        <div class="conthead"></div>
+        <div class="conthead">
     </div>
   <div class="nav" >
     <ul>

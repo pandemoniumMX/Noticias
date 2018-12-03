@@ -1,21 +1,23 @@
-  <?php
+<?php
 include'conexion.php';
-$ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FECHA desc LIMIT 1;";
+$publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
 ?>
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html>
   <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
-    <meta charset="utf-8">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <title>Ejemplo con CSS</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
+
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+        <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
 
       <div class="header">
           <div class="conthead"></div>
@@ -26,57 +28,35 @@ $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FE
       </div>
     <div class="nav" >
       <ul>
-        <li ><a href="index.php" class="active">INICIO</a></li>
-        <li><a href="catalogo.php">CATALOGO</a></li>
-        <li><a href="catalogo2.php">CATALOGO2</a></li>
-        <li><a href="contacto.php">CONTACTO</a></li>
-        <li><a href="acercade.php" >ACERCA DE</a></li>
-
-
+   
 
         </li>
       </ul>
     </div>
 
     </nav>
-
   </head>
 
-  <body>
-  <div class="banner">
-        <img  src="images/banner.png">
-  </div>
+<body>
 
 
 
-    <div class="notidia">
-    <?php
-       $ejec1 = mysqli_query($conn, $ultima);
-       while($fila=mysqli_fetch_array($ejec1)){ ?>
 
-    	<h2>Noticia del día</h2>
-      <img style="height: 250px; width: 250px; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
-    	<h1><?php echo $fila['NOT_TITULO']; ?></h1>
-      <p><?php echo $fila['NOT_CONTENIDO']; ?></p>
-      <?php } ?>
-    </div>
+  <div class="contentnoticias">
+               <h1>Necesitas iniciar sesión</h1>
+               <img style="height: 350px; width: 550px; "  src="images/acceso.jpg">
+</br>
+               <a style="font-size: 30px" href="javascript:history.go(-1)">Regresar página anterior</a>
 
-    <div class="popular">
-    <h2>POPULAR</h2>
-      <div class="popunoti">
-      <img  src="images/imagen.png">
-      <h1>titulo de ls noticia</h1>
-
-      </div>
-      <div class="popunoti">
-      <img  src="images/imagen.png">
-      <h1>titulo de ls noticia</h1>
-      </div>
-    </div>
+</div>
+</div>
 
 
-  </body>
-<footer>
+
+
+
+</body>
+    <footer>
   <div class="footer">
     <div class="contfoot"></div>
     <div class="contfoot">
@@ -132,5 +112,4 @@ $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FE
     })
     };
     </script>
-    
   </html>
