@@ -3,7 +3,6 @@
 
 <?php
 include'check_sesion.php';
-include'fuctions.php';
 include'conexion.php';
 
 $var_name=$_SESSION['nombre'];

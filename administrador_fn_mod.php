@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'fuctions.php';
 include 'conexion.php';
 verificar_sesion();
 

@@ -1,6 +1,5 @@
 <?php
 include'check_sesion.php';
-include'fuctions.php';
 include'conexion.php';
 //verificar_sesion();
 
@@ -36,6 +35,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
