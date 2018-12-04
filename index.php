@@ -1,7 +1,7 @@
   <?php
 include'conexion.php';
 $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FECHA desc LIMIT 1;";
-
+$primera = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FECHA asc LIMIT 1;";
 ?>
 
   <!DOCTYPE html>
@@ -64,13 +64,26 @@ $ultima = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_FE
     <div class="popular">
     <h2>POPULAR</h2>
       <div class="popunoti">
-      <img  src="images/imagen.png">
-      <h1>titulo de ls noticia</h1>
+    <?php
+       $ejec1 = mysqli_query($conn, $ultima);
+       while($fila=mysqli_fetch_array($ejec1)){ ?>
+
+      <img  src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
+      <h1><?php echo $fila['NOT_TITULO']; ?></h1>
+
+      <?php } ?>
 
       </div>
       <div class="popunoti">
-      <img  src="images/imagen.png">
-      <h1>titulo de ls noticia</h1>
+    <?php
+       $ejec1 = mysqli_query($conn, $primera);
+       while($fila=mysqli_fetch_array($ejec1)){ ?>
+
+
+      <img src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
+      <h1><?php echo $fila['NOT_TITULO']; ?></h1>
+
+      <?php } ?>
       </div>
     </div>
 
