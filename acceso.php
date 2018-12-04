@@ -14,7 +14,7 @@ $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
 
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
         <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />

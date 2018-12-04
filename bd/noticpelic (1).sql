@@ -25,7 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `noticias`
 --
-
+create database noticpelic;
+use noticpelic;
 CREATE TABLE `noticias` (
   `ID_NOTICIA` int(11) NOT NULL,
   `NOT_TITULO` varchar(50) DEFAULT NULL,
@@ -57,6 +58,8 @@ CREATE TABLE `peliculas` (
   `PEL_TITULO` varchar(100) NOT NULL,
   `PEL_SIPOPSIS` text NOT NULL,
   `PEL_GENERO` text NOT NULL,
+    `PEL_FECHA` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+
   `PEL_IMG` varchar(200) NOT NULL,
   `PEL_ESTADO` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

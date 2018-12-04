@@ -3,9 +3,10 @@ include'check_sesion.php';
 include'conexion.php';
 //verificar_sesion();
 
-$var_name=$_SESSION['nombre'];
+
+$var_name=$_SESSION['USU_NOMBRE'];
 $var_clave= $_SESSION['clave'];
-$var_tipo = $_SESSION['tipo'];
+$var_tipo = $_SESSION['USU_TIPO'];
 
 /*
 if($var_tipo != "Administrador") {
@@ -93,8 +94,10 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
       <ul class="app-menu">
       
      
-      <li><a class="app-menu__item active" href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
-       <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
+      
+      <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de peliculas</span></a></li>
+<li><a class="app-menu__item " href="administrador_peliculas.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
+       <li><a class="app-menu__item active" href="administrador_usuarios.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
 </ul>
 
 
@@ -232,7 +235,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
    <!-- Essential javascripts for application to work-->
    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="assets/js/plugins/pace.min.js"></script>
@@ -411,7 +414,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
    <!-- Essential javascripts for application to work-->
    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="assets/js/plugins/pace.min.js"></script>

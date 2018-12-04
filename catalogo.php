@@ -14,7 +14,7 @@ $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
         <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
 
 
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
 

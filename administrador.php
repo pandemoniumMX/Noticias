@@ -16,6 +16,9 @@ if($var_tipo != "Administrador") {
 
 $publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
+$pub_peli = "SELECT *  FROM peliculas where PEL_ESTADO ='Publicada';";
+
+
 $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
 
 ?>
@@ -90,6 +93,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
       
      
       <li><a class="app-menu__item active" href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
+      <li><a class="app-menu__item " href="administrador_peliculas.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de peliculas</span></a></li>
       <li><a class="app-menu__item " href="administrador_usuarios.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
 </ul>
 
@@ -123,6 +127,8 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                       <label class="btn btn-warning" id='see-me'>
                       <input name='test' type='radio' /> Noticias eliminadas
                     </label>
+
+                     
     <!--common script for all pages
 
                     <label class="btn btn-danger" onclick="location='admin_editar_taller.php'">
@@ -217,7 +223,6 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
               
 </div></div></div></div>
 
-
   
   </body>
 
@@ -230,7 +235,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
    <!-- Essential javascripts for application to work-->
    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="assets/js/plugins/pace.min.js"></script>
@@ -408,7 +413,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
    <!-- Essential javascripts for application to work-->
    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="assets/js/plugins/pace.min.js"></script>
@@ -491,6 +496,7 @@ function fn_modificar(id){
  '<textarea type="text" name="contenido" id="contenido" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
   '<label>imagen</label>' +
  '<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
+ 
  '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Agregar producto</Button>'+
  '</form></div>',
  showCancelButton: true,

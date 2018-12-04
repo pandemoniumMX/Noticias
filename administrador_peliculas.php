@@ -1,22 +1,24 @@
 <?php
 include'check_sesion.php';
+//include'fuctions.php';
 include'conexion.php';
-//verificar_sesion();
 
-$var_name=$_SESSION['nombre'];
+$var_name=$_SESSION['USU_NOMBRE'];
 $var_clave= $_SESSION['clave'];
-$var_tipo = $_SESSION['tipo'];
+$var_tipo = $_SESSION['USU_TIPO'];
 
-/*
+
 if($var_tipo != "Administrador") {
  //echo "<script>alert('No tienes acceso a esta página!')</script>";
-   echo "<script>window.open('Error_restrinccion.php','_self')</script>";
+   echo "<script>window.open('acceso.php','_self')</script>";
  }
-*/
 
-$publicada = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada';";
 
-$eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
+$publicada = "SELECT *  FROM peliculas where PEL_ESTADO ='Publicada';";
+
+
+
+$eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
 
 ?>
 <!DOCTYPE html>
@@ -38,6 +40,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
     <!-- Font-icon css-->
   <link href= "css/themify-icons.css" rel="stylesheet">
@@ -88,7 +91,9 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
       <ul class="app-menu">
       
      
-      <li><a class="app-menu__item active" href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
+      <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
+      <li><a class="app-menu__item active" href="administrador_peliculas.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de peliculas</span></a></li>
+
       <li><a class="app-menu__item " href="administrador_usuarios.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
 </ul>
 
@@ -112,16 +117,18 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                   <form id='form-id'>
 
                     <label class="btn btn-danger active" onclick="nueva();" >
-                      <a  /> Nueva noticia
+                      <a  /> Nueva película
                       </label>
 
                     <label class="btn btn-success" id='watch-me'>
-                      <input name='test' type='radio' /> Modificar noticia
+                      <input name='test' type='radio' /> Modificar pelicula
                     </label>
 
                       <label class="btn btn-warning" id='see-me'>
-                      <input name='test' type='radio' /> Noticias eliminadas
+                      <input name='test' type='radio' /> Peliculas eliminadas
                     </label>
+
+                     
     <!--common script for all pages
 
                     <label class="btn btn-danger" onclick="location='admin_editar_taller.php'">
@@ -162,17 +169,17 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                 $ejec1 = mysqli_query($conn, $publicada);
                 while($fila=mysqli_fetch_array($ejec1)){ ?>
 
-                <div class="col-lg-4" ><form action="administrador_fn_eliminar.php" method="post" name="data" content="text/html; charset=utf-8">
+                <div class="col-lg-4" ><form action="administrador_fn_eliminar_pelicula.php" method="post" name="data" content="text/html; charset=utf-8">
                   <div class="bs-component">
                     <div class="card" >
-                      <h4 class="card-header"><?php echo $fila['NOT_TITULO']; ?></h4>
+                      <h4 class="card-header"><?php echo $fila['PEL_TITULO']; ?></h4>
                       <div class="card-body">
-                        <h5 class="card-title"><?php echo $fila['NOT_SUBTITULO']; ?></h5>
-                        <h6 class="card-subtitle text-muted"><?php echo $fila['NOT_CONTENIDO']; ?></h6>
-                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
+                        <h5 class="card-title"><?php echo $fila['PEL_SIPOPSIS']; ?></h5>
+                        <h6 class="card-subtitle text-muted"><?php echo $fila['PEL_GENERO']; ?></h6>
+                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['PEL_IMG']; ?>" alt="Card image">
 
-                      <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
-                      <input  type="hidden" id="id" name="id" value="<?php echo $fila['ID_NOTICIA']; ?>" />
+                      <div class="card-footer text-muted"><?php echo  $fila['PEL_FECHA']; ?> </div>
+                      <input  type="hidden" id="id" name="id" value="<?php echo $fila['ID_PELICULA']; ?>" />
 
                       <input class="btn btn-success" type="submit" name="foo" value="Eliminar" />
 
@@ -198,14 +205,14 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                 <div class="col-lg-4">
                   <div class="bs-component">
                     <div class="card">
-                      <h4 class="card-header"><?php echo $fila['NOT_TITULO']; ?></h4>
+                      <h4 class="card-header"><?php echo $fila['PEL_TITULO']; ?></h4>
                       <div class="card-body">
-                        <h5 class="card-title"><?php echo $fila['NOT_SUBTITULO']; ?></h5>
-                        <h6 class="card-subtitle text-muted"><?php echo $fila['NOT_CONTENIDO']; ?></h6>
-                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
+                        <h5 class="card-title"><?php echo $fila['PEL_SIPOPSIS']; ?></h5>
+                        <h6 class="card-subtitle text-muted"><?php echo $fila['PEL_GENERO']; ?></h6>
+                      </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['PEL_IMG']; ?>" alt="Card image">
 
                       <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
-                        <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_NOTICIA']; ?>), fn_modificar(<?php echo $fila['ID_NOTICIA']; ?>);">Republicar</button>
+                        <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_PELICULA']; ?>), fn_modificar(<?php echo $fila['ID_PELICULA']; ?>);">Republicar</button>
                       </div>
 
                   
@@ -215,7 +222,6 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
               <?php } ?>
               
 </div></div></div></div>
-
 
   
   </body>
@@ -243,8 +249,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
     <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#a-tables').DataTable();</script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js
-"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
     <script src="assets/js/chartjs/Chart.bundle.js"></script>
     <script src="assets/js/chartjs/Chart.bundle.min.js"></script>
@@ -480,18 +485,19 @@ function fn_modificar(id){
 
 
   swal({
- title: 'Registrar nueva noticia',
+ title: 'Registrar nueva película',
  html:
  '<div class="col-lg-12"> <form action="administrador_fn_nueva.php" method="post" name="data" enctype="multipart/form-data">'+
  '<label>Titulo</label>' +
  '<input input type="text" name="titulo" id="titulo" pattern="[A-Za-z ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
- '<label>Subtitulo</label>' +
- '<input input type="text" name="sub" id="sub" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
- '<label>Contenido</label>' +
- '<textarea type="text" name="contenido" id="contenido" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
+ '<label>Genero</label>' +
+ '<input input type="text" name="gen" id="gen" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
+ '<label>Sipnosis</label>' +
+ '<textarea type="text" name="sip" id="sip" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
   '<label>imagen</label>' +
  '<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
- '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Agregar producto</Button>'+
+ 
+ '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Agregar pelicula</Button>'+
  '</form></div>',
  showCancelButton: true,
  confirmButtonColor: '#3085d6',
@@ -516,7 +522,7 @@ swal({
 title: 'Modificar',
 html:
 '<div class="col-lg-12"> <form action="administrador_fn_act.php" method="post" name="data" enctype="multipart/form-data">'+
-//'<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
+'<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Titulo</label>' +
 '<input input type="text" name="tit" id="tit" pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Subtitulo</label>' +
