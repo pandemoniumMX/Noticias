@@ -468,11 +468,11 @@ html:
 '<div class="col-lg-12"> <form action="administrador_fn_act.php" method="post" name="data" enctype="multipart/form-data">'+
 '<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Titulo</label>' +
-'<input input type="text" name="tit" id="tit" pattern="[A-Za-z]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
+'<input input type="text" name="tit" id="tit" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Subtitulo</label>' +
-'<input input type="text" name="sub" id="sub" pattern="[A-Za-z0-9]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<input input type="text" name="sub" id="sub" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
 '<label>Contenido</label>' +
-'<input input type="textarea" name="con" id="con" pattern="[A-Za-z0-9]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<input input type="textarea" name="con" id="con" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
 '<label>Estado</label>' +
 '<select class="form-control form-control-sm" textalign="center"   required name="est" id="est">'+
  '<option value=""></option>'+

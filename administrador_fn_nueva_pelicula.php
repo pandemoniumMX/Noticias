@@ -12,7 +12,7 @@ $var_clave= $_SESSION['clave'];
 
 $tit = $_POST['titulo'];
 $gen = $_POST['gen'];
-$sip = $_POST['sip'];
+//$sip = $_POST['sip'];
 
 
 

@@ -14,7 +14,7 @@ $tit = $_POST['titulo'];
 $sub = $_POST['sub'];
 $con = $_POST['contenido'];
 
-$tip = $_POST['tip'];
+//$tip = $_POST['tip'];
 
 
 $micarpeta = "galeria/noticias/";
