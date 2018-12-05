@@ -24,12 +24,6 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
 <!DOCTYPE html>
 <html lang="es">
   <head>
-<script src="assets\js\push.js/push.min.js" > </script>
-
-<script src="assets\js\plugins/bootstrap-notify.min.js"></script>
-
-
-
 
     <!-- Open Graph Meta-->
     <title>Administrador</title>
@@ -40,7 +34,7 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
+
 
     <!-- Font-icon css-->
   <link href= "css/themify-icons.css" rel="stylesheet">
@@ -91,10 +85,10 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
       <ul class="app-menu">
       
      
-      <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de noticias</span></a></li>
-      <li><a class="app-menu__item active" href="administrador_peliculas.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de peliculas</span></a></li>
+      <li><a class="app-menu__item " href="administrador.php"><i class="app-menu__icon ti-agenda"></i><span class="app-menu__label">Administración de noticias</span></a></li>
+      <li><a class="app-menu__item active" href="administrador_peliculas.php"><i class="app-menu__icon ti-video-clapper"></i><span class="app-menu__label">Administración de peliculas</span></a></li>
 
-      <li><a class="app-menu__item " href="administrador_usuarios.php"><i class="app-menu__icon ti-star"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
+      <li><a class="app-menu__item " href="administrador_usuarios.php"><i class="app-menu__icon ti-user"></i><span class="app-menu__label">Administración de usuarios</span></a></li>
 </ul>
 
 
@@ -227,38 +221,13 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
   </body>
 
 </main>
-    <!-- Essential javascripts for application to work-->
+   
 
-    <!-- Page specific javascripts-->
-    <!-- Google analytics script-->
-    <!-- js placed at the end of the document so the pages load faster -->
-   <!-- Essential javascripts for application to work-->
-   <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="assets/js/plugins/pace.min.js"></script>
-     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/moment.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/fullcalendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="assets/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">$('#a-tables').DataTable();</script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
-
-    <script src="assets/js/chartjs/Chart.bundle.js"></script>
-    <script src="assets/js/chartjs/Chart.bundle.min.js"></script>
-    <script src="assets/js/chartjs/Chart.js"></script>
-    <script src="assets/js/chartjs/Chart.min.js"></script>
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
     <script src="js/jquery.js"></script>
-
  
     
  <script type="text/javascript">
@@ -405,31 +374,6 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
   </script>
   
  
-    <!-- Essential javascripts for application to work-->
-
-    <!-- Page specific javascripts-->
-    <!-- Google analytics script-->
-    <!-- js placed at the end of the document so the pages load faster -->
-   <!-- Essential javascripts for application to work-->
-   <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="assets/js/plugins/pace.min.js"></script>
-     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="assets/js/plugins/moment.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/fullcalendar.min.js"></script>
-
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="assets/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">$('#a-tables').DataTable();</script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
 
     <div class="content-panel">
  <div class="col-lg-7">

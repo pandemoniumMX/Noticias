@@ -33,7 +33,6 @@ $res = $conn->query($sql);
 
 
 
-$res = $conn->query($sql);
 
 
 
