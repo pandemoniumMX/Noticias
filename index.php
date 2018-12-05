@@ -55,7 +55,7 @@ $primera = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_F
        while($fila=mysqli_fetch_array($ejec1)){ ?>
 
     	<h2>Noticia del día</h2>
-      <img style="height: 250px; width: 250px; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
+      <img  src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
     	<h1><?php echo $fila['NOT_TITULO']; ?></h1>
       <p><?php echo $fila['NOT_CONTENIDO']; ?></p>
       <?php } ?>

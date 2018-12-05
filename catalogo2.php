@@ -1,3 +1,9 @@
+<?php
+include'conexion.php';
+$peliculas = "SELECT *  FROM peliculas where PEL_ESTADO ='Publicada';";
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,99 +38,23 @@
 
 <body>
 
-  <div id="about"  >
+
+<?php
+                $ejec1 = mysqli_query($conn, $peliculas);
+                while($fila=mysqli_fetch_array($ejec1)){ ?>
+                <div id ="about">
+
+                    <img  src="<?php echo $fila['PEL_IMG']; ?>" alt="Card image">
+                      <h1><?php echo $fila['PEL_TITULO']; ?></h1>
+                      <p> <strong> GENÉRO: </strong>     <?php echo $fila['PEL_GENERO']; ?></p>
+                      <P><?php echo $fila['PEL_SIPOPSIS']; ?></P>
+                </div>
+
+              <?php } ?>
 
 
-  <!--Contenedor imagen de About -->
-  <div ><img src="images/peli1.png" width="250" height="300" alt="mc" /></div>
-
-  <!--Fin del Contenedor imagen de About -->
-
-  <!--Contenedor texto de About -->
-  <div id="nueva" >
-    <h1 >READY PLAYER ON</h1>
-      <h2> E </h2>
 
 
-       <p >Ready Player One es una novela de ciencia ficción escrita por el autor estadounidense Ernest Cline y cuya edición original en inglés fue publicada el 16 de agosto de 2011 por la editorial Crown Punisher.</p>
-       <p> <strong> GENÉRO: </strong>     Novela</p>
-       <p> <strong > SUBGÉNERO: </strong>Ciencia ficción y aventuras</p>
-       <p> <strong > IDIOMA: </strong>Ingles</p>
-       <a href="nueva_vista.php" align="right">Leer más</a></p>
-     </div>
-    <!--Fin Contenedor texto de About -->
-
-  </div>
-
-    <div id="about"  >
-
-
-    <!--Contenedor imagen de About -->
-    <div ><img src="images/peli2.png" width="250" height="300" alt="mc" /></div>
-
-    <!--Fin del Contenedor imagen de About -->
-
-    <!--Contenedor texto de About -->
-    <div id="nueva" >
-      <h1 >READY PLAYER ON</h1>
-        <h2> E </h2>
-
-
-         <p >Ready Player One es una novela de ciencia ficción escrita por el autor estadounidense Ernest Cline y cuya edición original en inglés fue publicada el 16 de agosto de 2011 por la editorial Crown Punisher.</p>
-         <p> <strong> GENÉRO: </strong>     Novela</p>
-         <p> <strong > SUBGÉNERO: </strong>Ciencia ficción y aventuras</p>
-         <p> <strong > IDIOMA: </strong>Ingles</p>
-         <a href="nueva_vista.php">Leer más</a></p>
-       </div>
-      <!--Fin Contenedor texto de About -->
-
-    </div>
-    <div id="about"  >
-
-
-    <!--Contenedor imagen de About -->
-    <div ><img src="images/peli3.png" width="250" height="300" alt="mc" /></div>
-
-    <!--Fin del Contenedor imagen de About -->
-
-    <!--Contenedor texto de About -->
-    <div id="nueva" >
-      <h1 >READY PLAYER ON</h1>
-        <h2> E </h2>
-
-
-         <p >Ready Player One es una novela de ciencia ficción escrita por el autor estadounidense Ernest Cline y cuya edición original en inglés fue publicada el 16 de agosto de 2011 por la editorial Crown Punisher.</p>
-         <p> <strong> GENÉRO: </strong>     Novela</p>
-         <p> <strong > SUBGÉNERO: </strong>Ciencia ficción y aventuras</p>
-         <p> <strong > IDIOMA: </strong>Ingles</p>
-         <a href="nueva_vista.php">Leer más</a></p>
-       </div>
-      <!--Fin Contenedor texto de About -->
-
-    </div>
-      <div id="about"  >
-
-
-      <!--Contenedor imagen de About -->
-      <div ><img src="images/peli4.png" width="250" height="300" alt="mc" /></div>
-
-      <!--Fin del Contenedor imagen de About -->
-
-      <!--Contenedor texto de About -->
-      <div id="nueva" >
-        <h1 >READY PLAYER ON</h1>
-          <h2> E </h2>
-
-
-           <p >Ready Player One es una novela de ciencia ficción escrita por el autor estadounidense Ernest Cline y cuya edición original en inglés fue publicada el 16 de agosto de 2011 por la editorial Crown Punisher.</p>
-           <p> <strong> GENÉRO: </strong>     Novela</p>
-           <p> <strong > SUBGÉNERO: </strong>Ciencia ficción y aventuras</p>
-           <p> <strong > IDIOMA: </strong>Ingles</p>
-           <a href="nueva_vista.php">Leer más</a></p>
-         </div>
-        <!--Fin Contenedor texto de About -->
-
-      </div>
 
 
 
@@ -148,15 +78,15 @@
 
 <style type="text/css">
 /*about*/
-#about {background-color:#d8d8d8; width:1200px; height:360px; padding:40px; margin:8px 30px;}
+#about {background-color:#d8d8d8; width:850px; height:360px; padding:40px; margin:8px 30px;}
 #about h1{ font-size:40px; color:#045fb4 }
 #about h2{ font-size:20px; color:#1a5fcd; margin-top:10px }
 #about p { text-align: justify; color: #5882fa}
 #about strong { color: black}
-#about img { width:500; padding:20px; margin-left:50px; display:block; float:left; border: 5px solid black; }
+#about img {width:250PX; height:300PX; padding:20px; margin-left:50px; display:block; float:left; border: 5px solid black; }
 
-#nueva { width:500px; padding: 0px; margin-left:100px; float:left;  display:block; color:#FFC }
-#nueva a  { color: #0742a0; align: right;}
+
+#about a  { color: #0742a0; align: right;}
 
 </style>
 
