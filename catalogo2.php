@@ -24,8 +24,8 @@ $peliculas = "SELECT *  FROM peliculas where PEL_ESTADO ='Publicada';";
   <div class="nav" >
     <ul>
       <li ><a href="index.php">INICIO</a></li>
-      <li><a href="catalogo.php" >CATALOGO</a></li>
-      <li><a href="catalogo2.php" class="active">CATALOGO2</a></li>
+      <li><a href="catalogo.php" >NOTICIAS</a></li>
+      <li><a href="catalogo2.php" class="active">PELICULAS</a></li>
       <li><a href="contacto.php" >CONTACTO</a></li>
       <li><a href="acercade.php" >ACERCA DE</a></li>
 

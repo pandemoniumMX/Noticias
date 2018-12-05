@@ -27,8 +27,8 @@ $primera = "SELECT *  FROM noticias where NOT_ESTADO ='Publicada' order by NOT_F
     <div class="nav" >
       <ul>
         <li ><a href="index.php" class="active">INICIO</a></li>
-        <li><a href="catalogo.php">CATALOGO</a></li>
-        <li><a href="catalogo2.php">CATALOGO2</a></li>
+        <li><a href="catalogo.php">NOTICIAS</a></li>
+        <li><a href="catalogo2.php">PELICULAS</a></li>
         <li><a href="contacto.php">CONTACTO</a></li>
         <li><a href="acercade.php" >ACERCA DE</a></li>
 

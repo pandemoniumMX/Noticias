@@ -50,8 +50,8 @@ $resu = $conn->query($cons);
     <div class="nav" >
       <ul>
         <li ><a href="index.php">INICIO</a></li>
-        <li><a href="catalogo.php" class="active">CATALOGO</a></li>
-        <li><a href="catalogo2.php">CATALOGO2</a></li>
+        <li><a href="catalogo.php" class="active">NOTICIAS</a></li>
+        <li><a href="catalogo2.php">PELICULAS</a></li>
         <li><a href="contacto.php" >CONTACTO</a></li>
         <li><a href="acercade.php" >ACERCA DE</a></li>
 
