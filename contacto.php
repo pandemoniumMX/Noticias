@@ -23,7 +23,6 @@ if($var_tipo != "Cliente" && $var_tipo !="Administrador") {
     <title>Ejemplo con CSS</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/estilos_base.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
