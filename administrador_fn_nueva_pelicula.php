@@ -6,7 +6,7 @@ include'check_sesion.php';
 include'conexion.php';
 
 
-$var_name=$_SESSION['nombre'];
+//$var_name=$_SESSION['nombre'];
 $var_clave= $_SESSION['clave'];
 
 
@@ -33,7 +33,6 @@ $res = $conn->query($sql);
 
 
 
-$res = $conn->query($sql);
 
 
 
