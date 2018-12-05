@@ -211,7 +211,7 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
                         <h6 class="card-subtitle text-muted"><?php echo $fila['PEL_GENERO']; ?></h6>
                       </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['PEL_IMG']; ?>" alt="Card image">
 
-                      <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
+                      <div class="card-footer text-muted"><?php echo  $fila['PEL_FECHA']; ?> </div>
                         <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_PELICULA']; ?>), fn_modificar(<?php echo $fila['ID_PELICULA']; ?>);">Republicar</button>
                       </div>
 
@@ -487,7 +487,7 @@ function fn_modificar(id){
   swal({
  title: 'Registrar nueva película',
  html:
- '<div class="col-lg-12"> <form action="administrador_fn_nueva.php" method="post" name="data" enctype="multipart/form-data">'+
+ '<div class="col-lg-12"> <form action="administrador_fn_nueva_pelicula.php" method="post" name="data" enctype="multipart/form-data">'+
  '<label>Titulo</label>' +
  '<input input type="text" name="titulo" id="titulo" pattern="[A-Za-z ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
  '<label>Genero</label>' +
