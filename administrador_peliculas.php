@@ -34,6 +34,7 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/chartist.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
 
     <!-- Font-icon css-->
@@ -173,9 +174,10 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
                       </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['PEL_IMG']; ?>" alt="Card image">
 
                       <div class="card-footer text-muted"><?php echo  $fila['PEL_FECHA']; ?> </div>
+                      <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_PELICULA']; ?>), fn_modificar(<?php echo $fila['ID_PELICULA']; ?>);">Modificar</button>
                       <input  type="hidden" id="id" name="id" value="<?php echo $fila['ID_PELICULA']; ?>" />
 
-                      <input class="btn btn-success" type="submit" name="foo" value="Eliminar" />
+                      <input class="btn btn-danger" type="submit" name="foo" value="Eliminar" />
 
                       </div>
                 </form>
@@ -386,7 +388,7 @@ $eliminada = "SELECT *  FROM peliculas where PEL_ESTADO ='Eliminada';";
 function fn_modificar(id){
   $.ajax({
       // la URL para la petición
-      url : 'administrador_fn_mod.php',
+      url : 'administrador_fn_mod_peli.php',
       // la información a enviar
       // (también es posible utilizar una cadena de datos)
       data : {
@@ -404,8 +406,8 @@ function fn_modificar(id){
        //  $("#id").val(data.data.id);
 
          $("#tit").val(data.data.tit);
-         $("#sub").val(data.data.sub);
-         $("#con").val(data.data.con);
+         $("#gen").val(data.data.gen);
+         $("#sip").val(data.data.sip);
          $("#est").val(data.data.est);
       },
       // código a ejecutar si la petición falla;
@@ -433,11 +435,11 @@ function fn_modificar(id){
  html:
  '<div class="col-lg-12"> <form action="administrador_fn_nueva_pelicula.php" method="post" name="data" enctype="multipart/form-data">'+
  '<label>Titulo</label>' +
- '<input input type="text" name="titulo" id="titulo" pattern="[A-Za-z ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
+ '<input input type="text" name="titulo" id="titulo" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
  '<label>Genero</label>' +
- '<input input type="text" name="gen" id="gen" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
+ '<input input type="text" name="gen" id="gen" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
  '<label>Sipnosis</label>' +
- '<textarea type="text" name="sip" id="sip" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
+ '<textarea type="text" name="sip" id="sip" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
   '<label>imagen</label>' +
  '<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
  
@@ -465,22 +467,22 @@ function modificar(id){
 swal({
 title: 'Modificar',
 html:
-'<div class="col-lg-12"> <form action="administrador_fn_act.php" method="post" name="data" enctype="multipart/form-data">'+
+'<div class="col-lg-12"> <form action="administrador_fn_act_peli.php" method="post" name="data" enctype="multipart/form-data">'+
 '<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Titulo</label>' +
 '<input input type="text" name="tit" id="tit" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
-'<label>Subtitulo</label>' +
-'<input input type="text" name="sub" id="sub" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
-'<label>Contenido</label>' +
-'<input input type="textarea" name="con" id="con" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<label>Genero</label>' +
+'<input input type="text" name="gen" id="gen" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<label>Sipnosis</label>' +
+'<input input type="textarea" name="sip" id="sip" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
 '<label>Estado</label>' +
 '<select class="form-control form-control-sm" textalign="center"   required name="est" id="est">'+
  '<option value=""></option>'+
  '<option value="Publicada">Publicada</option>'+
  '<option value="Eliminada">Eliminar</option>'+
- '</select>' +'
-  <label>imagen</label>' +
-'<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
+ '</select>' +
+ '<label>imagen</label>' +
+'<input input type="file" name="img" id="img"   accept="image/png/jpg" class="form-control border-input" ></br>'+
 '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Actualizar noticia</Button>'+
 '</form></div>',
 showCancelButton: true,

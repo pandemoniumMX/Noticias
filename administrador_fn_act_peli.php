@@ -7,25 +7,24 @@ include'check_sesion.php';
 include'conexion.php';
 
 
-
 $id = $_POST['id'];
 
 $tit = $_POST['tit'];
-$sub = $_POST['sub'];
-$con = $_POST['con'];
+$gen = $_POST['gen'];
+$sip = $_POST['sip'];
 $est = $_POST['est'];
 
 
-$micarpeta = "galeria/noticias/";
+$micarpeta = "galeria/peliculas/";
 if (!file_exists($micarpeta)) {
     mkdir($micarpeta, 0777, true);
 }
 
 $archivo = $_FILES['img']['tmp_name'];
-$destino = "galeria/noticias/". $_FILES['img']['name'];
+$destino = "galeria/peliculas/". $_FILES['img']['name'];
 move_uploaded_file($archivo, $destino);
 
-$sql = "UPDATE noticias set NOT_TITULO ='$tit', NOT_SUBTITULO='$sub', NOT_CONTENIDO='$con', NOT_ESTADO='$est' , NOT_IMG='$destino' where ID_NOTICIA='$id';";
+$sql = "UPDATE peliculas set PEL_TITULO ='$tit', PEL_SIPOPSIS='$sip', PEL_GENERO='$gen', PEL_ESTADO='$est' , PEL_IMG='$destino' where ID_PELICULA='$id';";
 
 
 
@@ -38,6 +37,6 @@ if (!$res) {
 }
 else{
   //echo "<script>alert('Usuario agregado exitosamente con el folio=$')</script>";
-  echo "<script>window.open('administrador.php','_self')</script>";}
+  echo "<script>window.open('administrador_peliculas.php','_self')</script>";}
 
 ?>

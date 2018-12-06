@@ -7,7 +7,7 @@ if(isset($_POST['id'])){
   $id = $_POST['id'];
 
 
-  $consulta = "SELECT * FROM noticias WHERE ID_NOTICIA = $id";
+  $consulta = "SELECT * FROM peliculas WHERE ID_PELICULA = $id";
 
 
    $resultado = $conn->query($consulta);
@@ -17,10 +17,10 @@ if(isset($_POST['id'])){
 
     while($row = $resultado->fetch_assoc()) {
   $response['data'] = array (
-    "tit"        =>  $row["NOT_TITULO"],
-    "sub"        =>  $row["NOT_SUBTITULO"],
-    "con"        =>  $row["NOT_CONTENIDO"],
-    "est"        =>  $row["NOT_ESTADO"],
+    "tit"        =>  $row["PEL_TITULO"],
+    "gen"        =>  $row["PEL_GENERO"],
+    "sip"        =>  $row["PEL_SIPOPSIS"],
+    "est"        =>  $row["PEL_ESTADO"],
 
   );
    }

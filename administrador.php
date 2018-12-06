@@ -176,8 +176,9 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
 
                       <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
                       <input  type="hidden" id="id" name="id" value="<?php echo $fila['ID_NOTICIA']; ?>" />
+                      <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_NOTICIA']; ?>), mod_modificar(<?php echo $fila['ID_NOTICIA']; ?>);">Modificar</button>
 
-                      <input class="btn btn-success" type="submit" name="foo" value="Eliminar" />
+                      <input class="btn btn-danger" type="submit" name="foo" value="Eliminar" />
 
                       </div>
                 </form>
@@ -208,7 +209,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
                       </div><img style="height: 350px; width: 100%; display: block;" src="<?php echo $fila['NOT_IMG']; ?>" alt="Card image">
 
                       <div class="card-footer text-muted"><?php echo  $fila['NOT_FECHA']; ?> </div>
-                        <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_NOTICIA']; ?>), fn_modificar(<?php echo $fila['ID_NOTICIA']; ?>);">Republicar</button>
+                        <button class="btn btn-success" type="button" onclick="modificar(<?php echo $fila['ID_NOTICIA']; ?>), mod_modificar(<?php echo $fila['ID_NOTICIA']; ?>);">Republicar</button>
                       </div>
 
                   
@@ -232,9 +233,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
- 
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 
     <script src="js/jquery.js"></script>
 
@@ -400,7 +399,7 @@ $eliminada = "SELECT *  FROM noticias where NOT_ESTADO ='Eliminada';";
 
 <script type="text/javascript">
  //Script para mandar ID para generar la orden
-function fn_modificar(id){
+function mod_modificar(id){
   $.ajax({
       // la URL para la petición
       url : 'administrador_fn_mod.php',
@@ -450,11 +449,11 @@ function fn_modificar(id){
  html:
  '<div class="col-lg-12"> <form action="administrador_fn_nueva.php" method="post" name="data" enctype="multipart/form-data">'+
  '<label>Titulo</label>' +
- '<input input type="text" name="titulo" id="titulo" pattern="[A-Za-z ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
+ '<input input type="text" name="titulo" id="titulo" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras" class="form-control border-input" maxlength="50" required>' +
  '<label>Subtitulo</label>' +
- '<input input type="text" name="sub" id="sub" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
+ '<input input type="text" name="sub" id="sub" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="50" required>' +
  '<label>Contenido</label>' +
- '<textarea type="text" name="contenido" id="contenido" pattern="[A-Za-z0-9 ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
+ '<textarea type="text" name="contenido" id="contenido" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
   '<label>imagen</label>' +
  '<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
  
@@ -483,21 +482,21 @@ swal({
 title: 'Modificar',
 html:
 '<div class="col-lg-12"> <form action="administrador_fn_act.php" method="post" name="data" enctype="multipart/form-data">'+
-'<input input type="number" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
+'<input input type="hidden" name="id" id="id" value="'+id+'" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Titulo</label>' +
 '<input input type="text" name="tit" id="tit" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras" class="form-control border-input" maxlength="20" required>' +
 '<label>Subtitulo</label>' +
 '<input input type="text" name="sub" id="sub" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
 '<label>Contenido</label>' +
-'<input input type="textarea" name="con" id="con" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input maxlength="20" required>' +
+'<textarea type="text" name="con" id="con" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s,. ]+" title="Sólo letras y números" class="form-control border-input"></textarea>'+
 '<label>Estado</label>' +
 '<select class="form-control form-control-sm" textalign="center"   required name="est" id="est">'+
  '<option value=""></option>'+
  '<option value="Publicada">Publicada</option>'+
  '<option value="Eliminada">Eliminar</option>'+
- '</select>' +'
-  <label>imagen</label>' +
-'<input input type="file" name="img" id="img"  required accept="image/png/jpg" class="form-control border-input" required></br>'+
+ '</select>' +
+ '<label>imagen</label>' +
+'<input input type="file" name="img" id="img"   accept="image/png/jpg" class="form-control border-input" ></br>'+
 '<Button type="submit" class= "btn btn-info btn-fill btn-wd">Actualizar noticia</Button>'+
 '</form></div>',
 showCancelButton: true,
